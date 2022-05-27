@@ -40,7 +40,7 @@ def main():
 
 
 def predict(image):
-    classifier_model = ""
+    classifier_model = "Tumour_classifier_model.h5"
     IMAGE_SHAPE = (224, 224,3)
     model = load_model(classifier_model, compile=False, custom_objects={'KerasLayer': hub.KerasLayer})
     test_image = image.resize((224,224))
@@ -48,20 +48,15 @@ def predict(image):
     test_image = test_image / 255.0
     test_image = np.expand_dims(test_image, axis=0)
     class_names = [
-          'Backpack',
-          'Briefcase',
-          'Duffle', 
-          'Handbag', 
-          'Purse']
+          'Tumour',
+          'Not Tumour']
     predictions = model.predict(test_image)
     scores = tf.nn.softmax(predictions[0])
     scores = scores.numpy()
     results = {
-          'Backpack': 0,
-          'Briefcase': 0,
-          'Duffle': 0, 
-          'Handbag': 0, 
-          'Purse': 0
+          'Tumour': 0,
+          'Not Tumour': 0,
+
 }
 
     
