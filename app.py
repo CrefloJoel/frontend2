@@ -13,9 +13,9 @@ fig = plt.figure()
 with open("custom.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-st.title('Bag Classifier')
+st.title('Tumour CLassifier')
 
-st.markdown("Welcome to this simple web application that classifies bags. The bags are classified into six different classes namely: Backpack, Briefcase, Duffle, Handbag and Purse.")
+st.markdown("Welcome to this simple web application that classifies brain tumour")
 
 
 def main():
